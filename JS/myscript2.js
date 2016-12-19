@@ -93,7 +93,7 @@
   });
 
   $('#btnFrequency').on('keydown', function(e){
-    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.down + keys.alt){
+    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.down && keys.alt){
       $('#appListbox').toggle('slow');
       $('#appListbox').find(".selected" ).focus();
       togglePressed();
