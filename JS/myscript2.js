@@ -59,6 +59,7 @@
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
               $(this).append("<span class='visuallyhidden'>selected</span>");
+              changeActiveDescendant();
               togglePressed();
               changeCategory();
              break;
@@ -74,11 +75,14 @@
 
   function togglePressed() {
     $('#btnFrequency').attr("aria-pressed", function(i, value){
-      console.log("aria-pressed value is " + value);
-      return value === "true" ? "false" : "true"
+      return value === "true" ? "false" : "true";
     });
-    var newval = $("#btnFrequency").attr('aria-pressed')
-    console.log("aria-pressed new value is " + newval);
+  }
+
+  function changeActiveDescendant(){
+    $('#appListbox').attr("aria-activedescendant", function(i, value){
+      return $('#appListbox').find('.selected').attr('id');
+    });
   }
 
   $('#btnFrequency').on('click', function(e){
@@ -107,6 +111,7 @@
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
     $(this).append("<span class='visuallyhidden'>selected</span>");
+    changeActiveDescendant();
     togglePressed();
     changeCategory();
   });
