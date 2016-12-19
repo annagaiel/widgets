@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/styles.css">
+  </head>
+  <body>
+
+    <h2 class="filterTxt" tabindex="-1">
+      <span class="ftext" id="cName">One</span>
+    </h2>
+
+    <button class="drop-btn small">
+      <div class="drop-title">
+        <span class="ui-hidden-accessible drop-selected">One selected, </span>
+        Select a category
+        <span class="ui-hidden-accessible drop-state">collapsed</span>
+      </div>
+      <div class="drop-icon">
+        <i id="drop-chevron" class="dropdown-chevron dropdown-chevron-down"></i>
+      </div>
+    </button>
+
+    <div id="categoryDropdown" class="dropdown-content">
+      <ul id="appListbox"
+              tabindex="0"
+              role="listbox"
+              aria-label="Select a category"
+              aria-owns="option1 option2 option3">
+              <li><a href="#"
+                     role="option"
+                     id="option1"
+                     tabindex="0"
+                     class="active"
+                     aria-selected="true"
+                     aria-posinset="1"
+                     aria-setsize="3"
+                     >One
+                    <span class="ui-hidden-accessible"> - You are here</span>
+                   </a>
+              </li>
+              <li><a href="#"
+                     role="option"
+                     id="option2"
+                     tabindex="-1"
+                     aria-selected="false"
+                     aria-posinset="2"
+                     aria-setsize="3"
+                     >Two</a>
+              </li>
+              <li><a href="#"
+                     role="option"
+                     id="option3"
+                     tabindex="-1"
+                     aria-selected="false"
+                     aria-posinset="3"
+                     aria-setsize="3"
+                     >Three</a>
+              </li>
+      </ul>
+    </div>
+
+  </body>
+  <script src="JS/myscript.js"></script>
+</html>
