@@ -8,7 +8,8 @@
      left:   37,
      up:     38,
      right:  39,
-     down:   40
+     down:   40,
+     alt: 18
    };
    var currentIndex;
 
@@ -92,7 +93,7 @@
   });
 
   $('#btnFrequency').on('keydown', function(e){
-    if(e.keyCode === keys.down || e.keyCode === keys.enter || e.keyCode === keys.space){
+    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.down + keys.alt){
       $('#appListbox').toggle('slow');
       $('#appListbox').find(".selected" ).focus();
       togglePressed();
