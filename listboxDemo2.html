@@ -17,7 +17,7 @@
       <option value="MONTHLY">Monthly</option>
     </select>
 
-    <div class="mwf-select-list-target" tabindex="0" role="button" aria-haspopup="true" id="btnFrequency" aria-labelledby="option-selected lblFrequency">
+    <div class="mwf-select-list-target" tabindex="0" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency" aria-describedby="option-selected">
       <p class="select-list-target-label">
         <p class="accessibilityLabel" id="option-selected" tabindex="-1">
           Once selected
@@ -39,38 +39,50 @@
               tabindex="0"
               data-value="ONCE"
               role="option"
-              aria-selected="true">Once
+              aria-selected="true"
+              aria-posinset="1"
+              aria-setsize="6">Once
             <span class="visuallyhidden">selected</span></li>
           <li id="option2"
               class=" "
               tabindex="-1"
               data-value="WEEKLY"
               role="option"
-              aria-selected="false">Weekly</li>
+              aria-selected="false"
+              aria-posinset="2"
+              aria-setsize="6">Weekly</li>
           <li id="option3"
               class=" "
               tabindex="-1"
               data-value="BIWEEKLY"
               role="option"
-              aria-selected="false">Every two weeks</li>
+              aria-selected="false"
+              aria-posinset="3"
+              aria-setsize="6">Every two weeks</li>
           <li id="option4"
               class=" "
               tabindex="-1"
               data-value="SEMI_MONTHLY"
               role="option"
-              aria-selected="false">Twice a month</li>
+              aria-selected="false"
+              aria-posinset="4"
+              aria-setsize="6">Twice a month</li>
           <li id="option5"
               class=" "
               tabindex="-1"
               data-value="MONTHLY_LAST_FRIDAY"
               role="option"
-              aria-selected="false">Last Friday of month</li>
+              aria-selected="false"
+              aria-posinset="5"
+              aria-setsize="6">Last Friday of month</li>
           <li id="option6"
               class=" "
               tabindex="-1"
               data-value="MONTHLY"
               role="option"
-              aria-selected="false">Monthly</li>
+              aria-selected="false"
+              aria-posinset="6"
+              aria-setsize="6">Monthly</li>
         </ul>
       </section>
     </div>
