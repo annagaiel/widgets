@@ -1,0 +1,112 @@
+/* global */
+p,li {
+    line-height: 1.5em
+}
+
+ol li,ul li {
+    margin: 0 auto .5em auto
+}
+/* dropdown */
+.ui-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    visibility: inherit;
+}
+
+.drop-icon {
+    padding-left: 10px;
+    position: relative;
+    right: 0;
+    display: inline;
+}
+
+.dropdown-chevron-down {
+    background: url(https://www01.wellsfargomedia.com/assets/images/css/template/Category_Dropdown_Arrow_Desktop_Closed_17x12.png) no-repeat right top;
+    height: 12px;
+    width: 17px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.dropdown-chevron-up {
+    background: url(https://www01.wellsfargomedia.com/assets/images/css/template/Category_Dropdown_Arrow_Desktop_Open_17x12.png) no-repeat right top;
+    height: 12px;
+    width: 17px;
+ display: inline-block;
+ vertical-align: bottom;
+}
+
+.drop-title {
+    float: left;
+    width: 160px;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 15px;
+    font-style: normal;
+    color: #fff;
+    line-height: 1em;
+}
+
+.drop-btn {
+    width: 230px;
+    padding: 10px 15px 10px 18px;
+    border-radius: 0;
+    background-color: #bb0826;
+    border: 0;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #d9d9d6;
+    width: 230px;
+    overflow: auto;
+    padding-bottom: 5px;
+    z-index: 999
+}
+
+.dropdown-content ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin: 0
+}
+
+/* links */
+
+
+.dropdown-content a,.dropdown-content a:visited {
+    padding: 12px 15px 12px 18px;
+    text-decoration: none;
+    display: block;
+    font-family: Verdana;
+    font-size: 15px;
+    font-style: normal;
+    color: #44464a
+}
+
+.dropdown-content a:hover,.dropdown-content a:focus {
+    text-decoration: none;
+    display: block;
+    background-color: #f8f8f8;
+    font-size: 15px;
+    font-weight: bold;
+    color: #44464a!important
+}
+
+.dropdown-content .active {
+    background-color: #f8f8f8;
+    font-weight: bold
+}
+
+.dropdown-content a:active {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #44464a
+}
