@@ -44,7 +44,7 @@
              gotoIndex(currentIndex - 1);
              break;
            case keys.esc:
-             gotoIndex(currentIndex);
+             $('#btnFrequency').click();
              break;
            case keys.down:
               gotoIndex(currentIndex + 1);

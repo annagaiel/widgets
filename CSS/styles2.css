@@ -1,7 +1,7 @@
 
 #list-container {
   width: 320px;
-  background-color: #f6f6f6;
+  background-color: #fff;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
 }
@@ -15,9 +15,9 @@ ul {
 }
 
 li {
-  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  font: 200 16px/2.5 verdana, arial, helvetica, sans-serif;
   border-bottom: 1px solid #ccc;
-  text-align: center;
+  padding: 0px 16px;
 }
 
 li:last-child {
@@ -38,11 +38,14 @@ li {
   width: 320px;
 }
 
-li:hover, li:focus, li.selected{
+li.selected{
   background: #e7e7e7;
 }
 
-/**/
+li:hover, li:focus {
+  background: #00698c;
+  color: #fff;
+}
 
 .mwf-input-text-label {
     margin-top: 0;
