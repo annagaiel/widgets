@@ -21,8 +21,11 @@
      }
      appsListItems[idx].focus();
      currentIndex = idx;
+	 var optionArray = appsListItems;
+	 changeAttributes(appsListItems[idx], optionArray);
    };
    Array.prototype.forEach.call(appsListItems, function(el, i){
+
      if ($(el).hasClass("selected")) {
        el.setAttribute('tabindex', '0');
        el.setAttribute('aria-selected', 'true');
@@ -40,7 +43,7 @@
              break;
            case keys.right:
              gotoIndex(currentIndex + 1);
-             break;
+			 break;
            case keys.left:
              gotoIndex(currentIndex - 1);
              break;
@@ -60,7 +63,6 @@
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
               $(this).append("<span class='visuallyhidden'>selected</span>");
-              changeActiveDescendant();
               togglePressed();
               changeCategory();
              break;
@@ -80,10 +82,33 @@
     });
   }
 
-  function changeActiveDescendant(){
-    $('#appListbox').attr("aria-activedescendant", function(i, value){
-      return $('#appListbox').find('.selected').attr('id');
-    });
+ 
+  
+  function changeAttributes(appsListItems, optionArray) {
+	
+	Array.prototype.forEach.call(optionArray, function(el, i){
+		
+			el.setAttribute('tabindex', '-1');
+			el.setAttribute('aria-selected', 'false');
+			el.classList.remove("selected");
+			el.classList.remove("change");
+		
+		 
+	});
+	$(appsListItems).addClass('change');
+	
+	Array.prototype.forEach.call(optionArray, function(el, i){
+			if ($(el).hasClass("change")) {
+			el.setAttribute('tabindex', '0');
+			el.setAttribute('aria-selected', 'true');
+		} else {
+			el.setAttribute('tabindex', '-1');
+			el.setAttribute('aria-selected', 'false');
+			el.classList.remove("selected");
+			el.classList.remove("change");
+		}
+		});
+		
   }
 
   $('#btnFrequency').on('click', function(e){
@@ -93,12 +118,16 @@
   });
 
   $('#btnFrequency').on('keydown', function(e){
-    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.down && keys.alt){
+    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.alt && e.keyCode === keys.down ){
       $('#appListbox').toggle('slow');
       $('#appListbox').find(".selected" ).focus();
       togglePressed();
     }
+	
+	
   });
+  
+  
 
   var changeCategory = function(e){
     $('#appListbox').toggle('slow');
@@ -112,7 +141,6 @@
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
     $(this).append("<span class='visuallyhidden'>selected</span>");
-    changeActiveDescendant();
     togglePressed();
     changeCategory();
   });
