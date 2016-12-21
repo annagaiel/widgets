@@ -37,9 +37,14 @@
      }
      el.addEventListener("keydown", function(event) {
          switch (event.keyCode) {
+           case event.shiftKey && keys.tab:
+            $('#appListbox').toggle('slow');
+            $('button').focus().children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
+           break;
            case keys.tab:
              $('#appListbox').toggle('slow');
-             $('button').focus().children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
+             $('button').children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
+             tabMoveFocusForward();
              break;
            case keys.right:
              gotoIndex(currentIndex + 1);
@@ -115,4 +120,14 @@
         break;
     }
   });
+
+  var tabMoveFocusForward = function(e) {
+      var $canfocus = $(':focusable');
+      var index = $canfocus.index(this) + 1;
+      if (index >= $canfocus.length) {
+        index = 0;
+        $canfocus.eq(index).focus();
+      }
+  }
+
 })()

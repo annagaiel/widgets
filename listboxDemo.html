@@ -2,19 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Demo 1</title>
+    <title>Listbox Demo</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="CSS/styles.css">
   </head>
   <body>
 
-    <h2 class="filterTxt" tabindex="-1">
+    <h1>Listbox Demo</h1>
+
+    <input type="text" name="name" title="Hello">
+
+    <h2 class="filterTxt">
       <span class="ftext" id="cName">One</span>
     </h2>
 
-    <p id="labelTxt">Category</p>
+    <p id="labelTxt"><label for="categoryLbl">Category</label></p>
 
-    <button class="drop-btn small" aria-label="Category Select a category" aria-pressed="false" aria-expanded="false">
+    <button id="categoryLbl" class="drop-btn small" aria-label="Category Select a category" aria-pressed="false" aria-expanded="false">
       <div class="drop-title">
         <span id="placeholderTxt">Select a category</span>
       </div>
@@ -87,6 +91,11 @@
                      >Six</a>
               </li>
       </ul>
+    </div>
+
+    <h2>Goodbye</h2>
+    <div>
+      <input type="text" name="name" title="Goodbye">
     </div>
 
   </body>
