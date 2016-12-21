@@ -12,11 +12,12 @@
       <span class="ftext" id="cName">One</span>
     </h2>
 
-    <button class="drop-btn small">
+    <p id="labelTxt">Category</p>
+
+    <button class="drop-btn small" aria-labelledby="labelTxt placeholderTxt drop-state">
       <div class="drop-title">
-        <span class="ui-hidden-accessible drop-selected">One selected, </span>
-        Select a category
-        <span class="ui-hidden-accessible drop-state">collapsed</span>
+        <span id="placeholderTxt">Select a category</span>
+        <span class="ui-hidden-accessible drop-state" id="drop-state">collapsed</span>
       </div>
       <div class="drop-icon">
         <i id="drop-chevron" class="dropdown-chevron dropdown-chevron-down"></i>

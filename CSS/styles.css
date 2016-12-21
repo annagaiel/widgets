@@ -1,10 +1,10 @@
 /* global */
 p,li {
-    line-height: 1.5em
+    line-height: 1.5em;
 }
 
 ol li,ul li {
-    margin: 0 auto .5em auto
+    margin: 0 auto .5em auto;
 }
 /* dropdown */
 .ui-hidden-accessible {
@@ -30,16 +30,16 @@ ol li,ul li {
     background: url(https://www01.wellsfargomedia.com/assets/images/css/template/Category_Dropdown_Arrow_Desktop_Closed_17x12.png) no-repeat right top;
     height: 12px;
     width: 17px;
-  display: inline-block;
-  vertical-align: bottom;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 .dropdown-chevron-up {
     background: url(https://www01.wellsfargomedia.com/assets/images/css/template/Category_Dropdown_Arrow_Desktop_Open_17x12.png) no-repeat right top;
     height: 12px;
     width: 17px;
- display: inline-block;
- vertical-align: bottom;
+   display: inline-block;
+   vertical-align: bottom;
 }
 
 .drop-title {
@@ -67,7 +67,7 @@ ol li,ul li {
     width: 230px;
     overflow: auto;
     padding-bottom: 5px;
-    z-index: 999
+    z-index: 999;
 }
 
 .dropdown-content ul {
@@ -75,7 +75,7 @@ ol li,ul li {
     text-align: left;
     padding-left: 0;
     padding-bottom: 0;
-    margin: 0
+    margin: 0;
 }
 
 /* links */
@@ -88,16 +88,18 @@ ol li,ul li {
     font-family: Verdana;
     font-size: 15px;
     font-style: normal;
-    color: #44464a
+    color: #44464a;
 }
 
-.dropdown-content a:hover,.dropdown-content a:focus {
+.dropdown-content a:hover {
     text-decoration: none;
     display: block;
-    background-color: #f8f8f8;
+    background-color: #F3A200;
     font-size: 15px;
     font-weight: bold;
-    color: #44464a!important
+    color: #44464a!important;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .dropdown-content .active {
@@ -108,5 +110,16 @@ ol li,ul li {
 .dropdown-content a:active {
     background-color: #f8f8f8;
     font-weight: bold;
-    color: #44464a
+    color: #44464a;
+}
+
+.dropdown-content a:focus {
+  border: 1px dashed #000;
+}
+
+#labelTxt {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #44464a;
 }

@@ -8,7 +8,9 @@
      left:   37,
      up:     38,
      right:  39,
-     down:   40
+     down:   40,
+     alt:    18,
+     shift:  16
    };
    var currentIndex;
 
@@ -36,6 +38,8 @@
      el.addEventListener("keydown", function(event) {
          switch (event.keyCode) {
            case keys.tab:
+             $('#appListbox').toggle('slow');
+             $('button').focus().children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
              break;
            case keys.right:
              gotoIndex(currentIndex + 1);
@@ -74,7 +78,6 @@
       return text === "collapsed" ? "expanded" : "collapsed";
     });
     $(this).children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
-
     $('#appListbox').toggle('slow');
     $('#appListbox').find(".active" ).focus();
   });
@@ -82,12 +85,11 @@
   var changeCategory = function(option){
     var name = option.split("-")[0];
     $("#cName").text(name);
+    $("#placeholderTxt").text(name);
     $('#appListbox').toggle('slow');
     $('button').children('.drop-title').children('span:nth-child(2)').text(function(i, text){
       return text === "collapsed" ? "expanded" : "collapsed";
     });
-    $('button').children('.drop-title').children('span:nth-child(1)').text( name + " selected, ");
-
     $('button').children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
     $('button').focus();
   }
@@ -100,4 +102,11 @@
     changeCategory(this.innerText);
   });
 
+  $('button').on('keydown', function(event, e){
+    switch (event.keyCode) {
+      case (event.altKey && keys.down) || keys.down:
+        $('button').click();
+        break;
+    }
+  });
 })()
