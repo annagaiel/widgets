@@ -5,9 +5,7 @@
      enter:  13,
      esc:    27,
      space:  32,
-     left:   37,
      up:     38,
-     right:  39,
      down:   40,
      alt: 18,
 	 shift: 16
@@ -53,15 +51,9 @@
 		      $('#appListbox').toggle('slow');
 			  tabMoveFocusForward();
              break;
-           case keys.right:
-             gotoIndex(currentIndex + 1);
-			 break;
-           case keys.left:
-             gotoIndex(currentIndex - 1);
-             break;
            case keys.esc:
              $('#appListbox').toggle('slow');
-			 $('#arrow').attr('src','Images/down.png');
+			 $('#arrow').attr('src','IMAGES/down.png');
 			 $('#btnFrequency').focus();
              break;
            case keys.down:
@@ -76,7 +68,7 @@
               $('#appListbox').find('li').children().remove('span');
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
-              $(this).append("<span class='visuallyhidden'> selected </span>");
+             
               togglePressed();
               changeCategory();
              break;
@@ -164,20 +156,20 @@
   var tabMoveFocusForward = function() {
 			 $("#accountNumber").focus(); // moving focus to next focusable element
 			 togglePressed();
-			 $('#arrow').attr('src','Images/down.png');
+			 $('#arrow').attr('src','IMAGES/down.png');
 			 
   }
   
    var tabMoveFocusBackward = function() {
 			 $("#informationLink").focus(); // moving focus to previous focusable element
 			 togglePressed();
-			 $('#arrow').attr('src','Images/down.png');
+			 $('#arrow').attr('src','IMAGES/down.png');
    }
   
 
   var changeCategory = function(e){
     $('#appListbox').toggle('slow');
-	$('#arrow').attr('src','Images/down.png');
+	$('#arrow').attr('src','IMAGES/down.png');
     $('#btnFrequency').focus();
   }
 
@@ -187,7 +179,7 @@
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
-    $(this).append("<span class='visuallyhidden'> selected </span>");
+    
     togglePressed();
     changeCategory();
   });

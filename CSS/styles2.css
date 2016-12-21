@@ -12,6 +12,7 @@ ul {
   padding: 7px;
   height: 200px;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 li {
