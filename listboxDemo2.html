@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="CSS/styles2.css">
   </head>
   <body>
-    <label for="btnFrequency" class="mwf-input-text-label" id="lblFrequency">Frequency</label>
+  <h1>Main Header</h1>
+  <input type="text"/>
+  <h2>Test Header</h2>
+  
+  
+    <span class="mwf-input-text-label" id="lblFrequency">Frequency</span>
 
     <select id="selfPaySelectableFrequency" name="frequency" style="display: none;"><option value="ONCE" selected="selected">Once</option>
       <option value="WEEKLY">Weekly</option>
@@ -17,19 +22,19 @@
       <option value="MONTHLY">Monthly</option>
     </select>
 
-    <div class="mwf-select-list-target" tabindex="0" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency" aria-describedby="option-selected">
+    <div class="mwf-select-list-target" tabindex="0" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency test" >
       <p class="select-list-target-label">
-        <p class="accessibilityLabel" id="option-selected" tabindex="-1">
+        <p class="accessibilityLabel" id="test" tabindex="-1">
           Once selected
         </p>
         <p aria-hidden="true">
           <span id="txtPlaceholder">Once</span>
         </p>
       </p>
-      <i class="mwf-icon"></i>
+      <i class="mwf-icon"><img id="arrow" src="Images/down.png"/></i>
     </div>
 
-    <section role="dialog"
+    <section
              class="mwf-targeted-popup mwf-popup-arrow-left arrow-vertical-50">
     <div id="list-container" class="mwf-popup mwf-select-list-popup">
       <section class="mwf-select-list-popup-body">
@@ -87,6 +92,8 @@
       </section>
     </div>
     </section>
+	<h3>Test Header</h3>
+	<input type="text"/>
   </body>
   <script src="JS/myscript2.js"></script>
 </html>
