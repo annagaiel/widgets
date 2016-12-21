@@ -9,13 +9,17 @@
      up:     38,
      right:  39,
      down:   40,
-     alt: 18
+     alt: 18,
+	 shift: 16
    };
    var currentIndex;
 
    var gotoIndex = function(idx) {
+	   
      if (idx == appsListItems.length) {
        idx = 0;
+	   alert(idx);
+	   
      } else if (idx < 0) {
        idx = appsListItems.length - 1;
      }
@@ -36,10 +40,18 @@
        el.setAttribute('tabindex', '-1');
        el.setAttribute('aria-selected', 'false');
        el.classList.remove("selected");
+	 
      }
      el.addEventListener("keydown", function(event) {
          switch (event.keyCode) {
-           case keys.tab:
+           
+		   case event.shiftKey && keys.tab:
+			$('#appListbox').toggle('slow');
+			tabMoveFocusBackward();
+			 break;
+		   case keys.tab:
+		      $('#appListbox').toggle('slow');
+			  tabMoveFocusForward();
              break;
            case keys.right:
              gotoIndex(currentIndex + 1);
@@ -59,7 +71,7 @@
            case keys.enter:
               $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
               $('#option-selected').text(this.innerText + " selected");
-              $('#appListbox').find('.selected').children().remove('span');
+              $('#appListbox').find('li').children().remove('span');
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
               $(this).append("<span class='visuallyhidden'>selected</span>");
@@ -117,20 +129,58 @@
     togglePressed();
   });
 
-  $('#btnFrequency').on('keydown', function(e){
-    if(e.keyCode === keys.enter || e.keyCode === keys.space  || e.keyCode === keys.alt && e.keyCode === keys.down ){
-      $('#appListbox').toggle('slow');
-      $('#appListbox').find(".selected" ).focus();
-      togglePressed();
-    }
+  $('#btnFrequency').on('keydown', function(event, e){
+	  
+	  switch (event.keyCode) {
+		  case keys.enter:
+		  case event.altKey && keys.down:
+			  $('#appListbox').toggle('slow');
+			  $('#arrow').attr('src','Images/up.png');
+			  $('#appListbox').find(".selected" ).focus();
+			  togglePressed();
+			  break; 
+		  case keys.space:
+			  var event = jQuery.Event('keypress');
+		      event.which = 32; 
+			  event.keyCode = 32; //keycode to trigger this for simulating enter
+			  jQuery(this).trigger(event); 
+			  $('#appListbox').toggle('slow');
+			  $('#arrow').attr('src','Images/up.png');
+			  $('#appListbox').find(".selected" ).focus();
+			  togglePressed();
+			  break;
 	
+			}
 	
   });
   
+  var tabMoveFocusForward = function(e) {
+	  var $canfocus = $(':focusable');
+			  alert($canfocus.length);
+			  var index = $canfocus.index(this) + 1;
+			
+			  if (index >= $canfocus.length) { 
+			  index = 0;
+              $canfocus.eq(index).focus();
+			  }
+  
+  }
+  
+   var tabMoveFocusBackward = function(e) {
+var $canfocus = $(':focusable');
+			  alert($canfocus.length);
+			  var index = $canfocus.index(this) - 1;
+			
+			  if (index >= $canfocus.length) { 
+			  index = 0;
+              $canfocus.eq(index).focus();
+			  }
+   }
   
 
   var changeCategory = function(e){
     $('#appListbox').toggle('slow');
+	$('#arrow').attr('src','Images/down.png');
     $('#btnFrequency').focus();
   }
 
