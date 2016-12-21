@@ -36,7 +36,8 @@
        el.setAttribute('tabindex', '-1');
        el.setAttribute('aria-selected', 'false');
        el.classList.remove("selected");
-	 
+	   el.removeAttribute("aria-current");
+	   
      }
      el.addEventListener("keydown", function(event) {
          switch (event.keyCode) { // switch for all keyPress events when a user is navigating the listbox
@@ -57,9 +58,17 @@
 			 $('#btnFrequency').focus();
              break;
            case keys.down:
+			  if (currentIndex == 5) {
+				  
+				  break;
+			  }
               gotoIndex(currentIndex + 1);
              break;
            case keys.up:
+		   if (currentIndex == 0) {
+				  
+				  break;
+			  }
               gotoIndex(currentIndex - 1);
              break;
            case keys.enter:
@@ -68,7 +77,8 @@
               $('#appListbox').find('li').children().remove('span');
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
-             
+			  $('li').removeAttr('aria-current');
+              $(this).attr('aria-current', 'true');
               togglePressed();
               changeCategory();
              break;
@@ -86,6 +96,9 @@
     $('#btnFrequency').attr("aria-pressed", function(i, value){
       return value === "true" ? "false" : "true";
     });
+	$('#btnFrequency').attr("aria-expanded", function(i, value){
+      return value === "true" ? "false" : "true";
+    });
   }
 
  
@@ -97,7 +110,8 @@
 			el.setAttribute('tabindex', '-1');
 			el.setAttribute('aria-selected', 'false');
 			el.classList.remove("change");
-		
+			
+			
 		 
 	});
 	$(appsListItems).addClass('change');
@@ -179,7 +193,7 @@
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
-    
+    $(this).attr('aria-current', 'true');
     togglePressed();
     changeCategory();
   });
