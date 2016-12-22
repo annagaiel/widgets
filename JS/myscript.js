@@ -100,6 +100,7 @@
     $(this).children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
     $('#appListbox').toggle('slow');
     $('#appListbox').find(".active" ).focus();
+
   });
 
   var changeCategory = function(option){

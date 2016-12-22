@@ -133,6 +133,14 @@
     $('#appListbox').toggle('slow');
     $('#appListbox').find(".selected" ).focus();
     togglePressed();
+	var up = "IMAGES/up.png";
+	var down = "IMAGES/down.png";
+		if($('#arrow').attr('src') === up) {
+			$('#arrow').attr('src', down);
+		} else {
+			$('#arrow').attr('src', up)
+
+		}
   });
 
   $('#btnFrequency').on('keydown', function(event, e){
@@ -191,8 +199,11 @@
     $('#option-selected').text(this.innerText + " selected");
     $('li').removeAttr('aria-current');
     $(this).attr('aria-current', 'true');
+		
+	
     togglePressed();
     changeCategory();
+	
   });
 
 })()
