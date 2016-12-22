@@ -123,3 +123,7 @@ ol li,ul li {
     font-weight: 700;
     color: #44464a;
 }
+.hidden {
+	display:none;
+	
+}

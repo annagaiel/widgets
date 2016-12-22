@@ -70,7 +70,6 @@
              $('#appListbox').find('.active').children().remove('span');
              $('#appListbox').find('.active').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('active');
              $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('active');
-             $(this).append("<span class='ui-hidden-accessible'> - You are here</span>");
 			 $('a').removeAttr('aria-current');
               $(this).attr('aria-current', 'true');
               changeCategory(this.innerText);
@@ -104,8 +103,28 @@
   });
 
   var changeCategory = function(option){
-    var name = option.split("-")[0];
+    var name = option
     $("#cName").text(name);
+	if (name == "Everyday Checking") {
+		$(".hidden").css("display", "none");
+		$("#everydayCheckingText").css("display", "block");
+	} else if (name == "Preferred Checking") {
+		$(".hidden").css("display", "none");
+		$("#preferredCheckingText").css("display", "block");
+	} else if (name == "PMA Checking") {
+		$(".hidden").css("display", "none");
+		$("#pmaCheckingText").css("display", "block");
+	} else if (name == "Premier Checking") {
+		$(".hidden").css("display", "none");
+		$("#premierCheckingText").css("display", "block");
+	} else if (name == "Platinum Savings") {
+		$(".hidden").css("display", "none");
+		$("#platinumSavingsText").css("display", "block");
+	} else {
+		$(".hidden").css("display", "none");
+		$("#wellsFargoCdsText").css("display", "block");
+	}
+	
     $("#placeholderTxt").text(name);
     $('#appListbox').toggle('slow');
     togglePressed();
@@ -117,7 +136,6 @@
     $('#appListbox').find('.active').children().remove('span');
     $('#appListbox').find('.active').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('active');
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('active');
-    $(this).append("<span class='ui-hidden-accessible'> - You are here</span>");
 	$('a').removeAttr('aria-current');
     $(this).attr('aria-current', 'true');
     changeCategory(this.innerText);
