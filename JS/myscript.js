@@ -130,14 +130,14 @@
     }
   });
 
-  var tabMoveFocusForward = function(e) {
-    $("#cardNumber").focus(); // moving focus to next focusable element
+  var tabMoveFocusForward = function(e) { // moving focus to next focusable element
+    $("#cardNumber").focus(); 
 			 togglePressed();
 			 $('#arrow').attr('src','IMAGES/down.png');
   }
   
-   var tabMoveFocusBackward = function() {
-			 $("#fullName").focus(); // moving focus to previous focusable element
+   var tabMoveFocusBackward = function() { // moving focus to previous focusable element
+			 $("#fullName").focus(); 
 			 togglePressed();
 			 $('#arrow').attr('src','IMAGES/down.png');
    }

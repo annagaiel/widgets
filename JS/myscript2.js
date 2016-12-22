@@ -161,21 +161,17 @@
   });
   
   
-  jQuery.extend(jQuery.expr[':'], {
-    focusable: function(el, index, selector){
-		return $(el).is('a, button, :input, [tabindex=0]');
-    }
-});
 
-  var tabMoveFocusForward = function() {
-			 $("#accountNumber").focus(); // moving focus to next focusable element
+
+  var tabMoveFocusForward = function() { // moving focus to next focusable element
+			 $("#accountNumber").focus(); 
 			 togglePressed();
 			 $('#arrow').attr('src','IMAGES/down.png');
 			 
   }
   
-   var tabMoveFocusBackward = function() {
-			 $("#informationLink").focus(); // moving focus to previous focusable element
+   var tabMoveFocusBackward = function() { // moving focus to previous focusable element
+			 $("#informationLink").focus(); 
 			 togglePressed();
 			 $('#arrow').attr('src','IMAGES/down.png');
    }
