@@ -5,9 +5,7 @@
      enter:  13,
      esc:    27,
      space:  32,
-     left:   37,
      up:     38,
-     right:  39,
      down:   40,
      alt:    18,
      shift:  16
@@ -22,6 +20,8 @@
      }
      appsListItems[idx].focus();
      currentIndex = idx;
+	 var optionArray = appsListItems;
+	 changeAttributes(appsListItems[idx], optionArray);
    };
    Array.prototype.forEach.call(appsListItems, function(el, i){
      if ($(el).hasClass("active")) {
@@ -40,25 +40,30 @@
            case event.shiftKey && keys.tab:
             $('#appListbox').toggle('slow');
             $('button').focus().children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
+			tabMoveFocusBackward();
            break;
            case keys.tab:
              $('#appListbox').toggle('slow');
              $('button').children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
              tabMoveFocusForward();
              break;
-           case keys.right:
-             gotoIndex(currentIndex + 1);
-             break;
-           case keys.left:
-             gotoIndex(currentIndex - 1);
-             break;
            case keys.esc:
-             $('button').click();
+             $('#appListbox').toggle('slow');
+			 $('#arrow').attr('src','IMAGES/down.png');
+			 $('#categoryLbl').focus();
              break;
            case keys.down:
+		    if (currentIndex == 5) {
+				  
+				  break;
+			  }
               gotoIndex(currentIndex + 1);
              break;
            case keys.up:
+		    if (currentIndex == 0) {
+				  
+				  break;
+			  }
               gotoIndex(currentIndex - 1);
              break;
            case keys.enter:
@@ -66,6 +71,8 @@
              $('#appListbox').find('.active').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('active');
              $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('active');
              $(this).append("<span class='ui-hidden-accessible'> - You are here</span>");
+			 $('a').removeAttr('aria-current');
+              $(this).attr('aria-current', 'true');
               changeCategory(this.innerText);
              break;
            case keys.space:
@@ -102,7 +109,7 @@
     $('#appListbox').toggle('slow');
     togglePressed();
     $('button').children('.drop-icon').children('i').toggleClass('dropdown-chevron-down dropdown-chevron-up');
-    $('button').focus();
+    $('.filterTxt').focus();
   }
 
   $("a").on('click', function(e){
@@ -110,6 +117,8 @@
     $('#appListbox').find('.active').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('active');
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('active');
     $(this).append("<span class='ui-hidden-accessible'> - You are here</span>");
+	$('a').removeAttr('aria-current');
+    $(this).attr('aria-current', 'true');
     changeCategory(this.innerText);
   });
 
@@ -122,12 +131,41 @@
   });
 
   var tabMoveFocusForward = function(e) {
-      var $canfocus = $(':focusable');
-      var index = $canfocus.index(this) + 1;
-      if (index >= $canfocus.length) {
-        index = 0;
-        $canfocus.eq(index).focus();
-      }
+    $("#cardNumber").focus(); // moving focus to next focusable element
+			 togglePressed();
+			 $('#arrow').attr('src','IMAGES/down.png');
+  }
+  
+   var tabMoveFocusBackward = function() {
+			 $("#fullName").focus(); // moving focus to previous focusable element
+			 togglePressed();
+			 $('#arrow').attr('src','IMAGES/down.png');
+   }
+   
+    function changeAttributes(appsListItems, optionArray) {
+	
+	Array.prototype.forEach.call(optionArray, function(el, i){
+		
+			el.setAttribute('tabindex', '-1');
+			el.setAttribute('aria-selected', 'false');
+			el.classList.remove("change");
+			
+			
+		 
+	});
+	$(appsListItems).addClass('change');
+	
+	Array.prototype.forEach.call(optionArray, function(el, i){ // dynamically updating values for currently focused listbox option
+			if ($(el).hasClass("change")) {
+			el.setAttribute('tabindex', '0');
+			el.setAttribute('aria-selected', 'true');
+		} else { // removing classes and adding tabindex="-1" and aria-selected="false" to options that do not have focus
+			el.setAttribute('tabindex', '-1');
+			el.setAttribute('aria-selected', 'false');
+			el.classList.remove("change");
+		}
+		});
+		
   }
 
 })()

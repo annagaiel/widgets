@@ -193,6 +193,7 @@
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
+    $('li').removeAttr('aria-current');
     $(this).attr('aria-current', 'true');
     togglePressed();
     changeCategory();
