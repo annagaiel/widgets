@@ -133,13 +133,11 @@
   var tabMoveFocusForward = function(e) { // moving focus to next focusable element
     $("#cardNumber").focus(); 
 			 togglePressed();
-			 $('#arrow').attr('src','IMAGES/down.png');
   }
   
    var tabMoveFocusBackward = function() { // moving focus to previous focusable element
 			 $("#fullName").focus(); 
 			 togglePressed();
-			 $('#arrow').attr('src','IMAGES/down.png');
    }
    
     function changeAttributes(appsListItems, optionArray) {
