@@ -23,75 +23,76 @@
     </select>
 
     <div class="mwf-select-list-target" tabindex="0" aria-expanded="false" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency option-selected" >
-      <p class="select-list-target-label">
+      
         <p class="accessibilityLabel" id="option-selected" tabindex="-1">
           Once selected
         </p>
         <p aria-hidden="true">
           <span id="txtPlaceholder">Once</span>
         </p>
-      </p>
+     
       <i class="mwf-icon"><img id="arrow" alt="" src="IMAGES/down.png"/></i>
     </div>
 
-    <section
+    <div
              class="mwf-targeted-popup mwf-popup-arrow-left arrow-vertical-50">
     <div id="list-container" class="mwf-popup mwf-select-list-popup">
-      <section class="mwf-select-list-popup-body">
-        <ul id="appListbox"  role="listbox" aria-label="Select a Frequency" aria-owns="option1 option2 option3 option4 option5 option6">
-          <li id="option1"
+      <div class="mwf-select-list-popup-body">
+        <ul id="appListbox"  role="listbox"  aria-label="Select a Frequency" aria-owns="option1 option2 option3 option4 option5 option6">
+          <li><a id="option1"
               class="selected"
               tabindex="0"
               data-value="ONCE"
               role="option"
+			  aria-current="true"
               aria-selected="true"
               aria-posinset="1"
-              aria-setsize="6">Once
-            <span class="visuallyhidden">selected</span></li>
-          <li id="option2"
+              aria-setsize="6">Once</a>
+            
+          <li><a id="option2"
               class=" "
               tabindex="-1"
               data-value="WEEKLY"
               role="option"
               aria-selected="false"
               aria-posinset="2"
-              aria-setsize="6">Weekly</li>
-          <li id="option3"
+              aria-setsize="6">Weekly</a></li>
+          <li><a id="option3"
               class=" "
               tabindex="-1"
               data-value="BIWEEKLY"
               role="option"
               aria-selected="false"
               aria-posinset="3"
-              aria-setsize="6">Every two weeks</li>
-          <li id="option4"
+              aria-setsize="6">Every two weeks</a></li>
+          <li><a id="option4"
               class=" "
               tabindex="-1"
               data-value="SEMI_MONTHLY"
               role="option"
               aria-selected="false"
               aria-posinset="4"
-              aria-setsize="6">Twice a month</li>
-          <li id="option5"
+              aria-setsize="6">Twice a month</a></li>
+          <li><a id="option5"
               class=" "
               tabindex="-1"
               data-value="MONTHLY_LAST_FRIDAY"
               role="option"
               aria-selected="false"
               aria-posinset="5"
-              aria-setsize="6">Last Friday of month</li>
-          <li id="option6"
+              aria-setsize="6">Last Friday of month</a></li>
+          <li><a id="option6"
               class=" "
               tabindex="-1"
               data-value="MONTHLY"
               role="option"
               aria-selected="false"
               aria-posinset="6"
-              aria-setsize="6">Monthly</li>
+              aria-setsize="6">Monthly</a></li>
         </ul>
-      </section>
+      </div>
     </div>
-    </section>
+    </div>
 	<h3>Account</h3>
 	<label for="accountNumber">Account Number</label>
 	<input id="accountNumber" type="text"/>

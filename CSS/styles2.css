@@ -1,6 +1,6 @@
 
 #list-container {
-  width: 320px;
+  width: 325px;
   background-color: #fff;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
@@ -18,12 +18,17 @@ ul {
 li {
   font: 200 16px/2.5 verdana, arial, helvetica, sans-serif;
   border-bottom: 1px solid #ccc;
-  padding: 0px 16px;
+
 }
 
 li:last-child {
   border-top: none;
   border-bottom: 1px solid #ccc;
+}
+
+#appListbox a {
+	display:block;
+	  padding: 0px 16px;
 }
 
 li {
@@ -39,11 +44,11 @@ li {
   width: 320px;
 }
 
-li.selected{
+#appListbox a.selected{
   background: #e7e7e7;
 }
 
-li:hover, li:focus {
+#appListbox a:hover, #appListbox a:focus {
   background: #00698c;
   color: #fff;
 }
@@ -71,6 +76,10 @@ li:hover, li:focus {
     background-color: #fff;
     cursor: pointer;
 	outline: none;
+	padding-left:12px;
+}
+#option-selected  {
+	
 }
 .mwf-select-list-target:focus {
 	outline: thin dotted !important;

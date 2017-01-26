@@ -1,5 +1,5 @@
 (function() {
-  var appsListItems = document.querySelectorAll('#appListbox > li');
+  var appsListItems = document.querySelectorAll('#appListbox > li > a');
   var keys = {
      tab:    9,
      enter:  13,
@@ -51,11 +51,13 @@
 		   case keys.tab:
 		      $('#appListbox').toggle('slow');
 			  tabMoveFocusForward();
+			  togglePressed();
              break;
            case keys.esc:
              $('#appListbox').toggle('slow');
 			 $('#arrow').attr('src','IMAGES/down.png');
 			 $('#btnFrequency').focus();
+			   togglePressed();
              break;
            case keys.down:
 			  if (currentIndex == 5) {
@@ -74,11 +76,12 @@
            case keys.enter:
               $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
               $('#option-selected').text(this.innerText + " selected");
-              $('#appListbox').find('li').children().remove('span');
+              $('#appListbox').find('a').children().remove('span');
               $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
               $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
-			  $('li').removeAttr('aria-current');
+			  $('#appListbox a').removeAttr('aria-current');
               $(this).attr('aria-current', 'true');
+
               togglePressed();
               changeCategory();
              break;
@@ -191,13 +194,13 @@
     $('#btnFrequency').focus();
   }
 
-  $("li").on('click', function(e){
+  $("#appListbox a").on('click', function(e){
     $('#appListbox').find('.selected').children().remove('span');
     $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
     $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
     $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
     $('#option-selected').text(this.innerText + " selected");
-    $('li').removeAttr('aria-current');
+    $('#appListbox a').removeAttr('aria-current');
     $(this).attr('aria-current', 'true');
 		
 	
