@@ -50,8 +50,9 @@
 			 break;
 		   case keys.tab:
 		      $('#appListbox').toggle('slow');
+		
 			  tabMoveFocusForward();
-			  togglePressed();
+			  
              break;
            case keys.esc:
              $('#appListbox').toggle('slow');
