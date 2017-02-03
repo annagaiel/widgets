@@ -40,8 +40,21 @@
 	   
      }
      el.addEventListener("keydown", function(event) {
+		 
          switch (event.keyCode) { // switch for all keyPress events when a user is navigating the listbox
-           
+            case keys.enter:
+		    case event.altKey && keys.up:
+              $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
+              $('#option-selected').text(this.innerText + " selected");
+              $('#appListbox').find('a').children().remove('span');
+              $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
+              $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
+			  $('#appListbox a').removeAttr('aria-current');
+              $(this).attr('aria-current', 'true');
+
+              togglePressed();
+              changeCategory();
+             break;
 		   case event.shiftKey && keys.tab:
 			$('#appListbox').toggle('slow');
 			
@@ -61,6 +74,7 @@
 			   togglePressed();
              break;
            case keys.down:
+		  
 			  if (currentIndex == 5) {
 				  
 				  break;
@@ -74,18 +88,8 @@
 			  }
               gotoIndex(currentIndex - 1);
              break;
-           case keys.enter:
-              $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
-              $('#option-selected').text(this.innerText + " selected");
-              $('#appListbox').find('a').children().remove('span');
-              $('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
-              $(this).attr('tabindex', '0').attr('aria-selected', 'true').addClass('selected');
-			  $('#appListbox a').removeAttr('aria-current');
-              $(this).attr('aria-current', 'true');
-
-              togglePressed();
-              changeCategory();
-             break;
+         
+			 
            case keys.space:
              break;
          }
@@ -178,6 +182,7 @@
   var tabMoveFocusForward = function() { // moving focus to next focusable element
 			 $("#accountNumber").focus(); 
 			 togglePressed();
+			 resetAfterTabOut();
 			 $('#arrow').attr('src','IMAGES/down.png');
 			 
   }
@@ -185,10 +190,15 @@
    var tabMoveFocusBackward = function() { // moving focus to previous focusable element
 			 $("#informationLink").focus(); 
 			 togglePressed();
+			 resetAfterTabOut();
 			 $('#arrow').attr('src','IMAGES/down.png');
    }
   
-
+var resetAfterTabOut = function() {
+	$('#appListbox').find('.change').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('change');
+	$('#appListbox').find('.selected').attr('tabindex', '0').attr('aria-current', 'true').attr('aria-selected', 'true');
+	
+}
   var changeCategory = function(e){
     $('#appListbox').toggle('slow');
 	$('#arrow').attr('src','IMAGES/down.png');
