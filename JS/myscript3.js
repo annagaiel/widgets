@@ -53,7 +53,7 @@
               $(this).attr('aria-current', 'true');
 
               togglePressed();
-              changeCategory();
+              changeCategory(this.innerText);
              break;
 		   case event.shiftKey && keys.tab:
 			$('#appListbox').toggle('slow');
@@ -201,10 +201,34 @@ var resetAfterTabOut = function() {
 	$('#appListbox').find('.selected').attr('tabindex', '0').attr('aria-current', 'true').attr('aria-selected', 'true');
 	
 }
-  var changeCategory = function(e){
+  var changeCategory = function(option){
     $('#appListbox').toggle('slow');
 	$('#arrow').attr('src','IMAGES/down.png');
-    $('#btnFrequency').focus();
+	
+      var name = option
+    $("#cName").text(name);
+	if (name == "Everyday Checking") {
+		$(".hidden").css("display", "none");
+		$("#everydayCheckingText").css("display", "block");
+	} else if (name == "Preferred Checking") {
+		$(".hidden").css("display", "none");
+		$("#preferredCheckingText").css("display", "block");
+	} else if (name == "PMA Checking") {
+		$(".hidden").css("display", "none");
+		$("#pmaCheckingText").css("display", "block");
+	} else if (name == "Premier Checking") {
+		$(".hidden").css("display", "none");
+		$("#premierCheckingText").css("display", "block");
+	} else if (name == "Platinum Savings") {
+		$(".hidden").css("display", "none");
+		$("#platinumSavingsText").css("display", "block");
+	} else {
+		$(".hidden").css("display", "none");
+		$("#wellsFargoCdsText").css("display", "block");
+	}
+	
+    $("#placeholderTxt").text(name);
+    $('.filterTxt').focus();
   }
 
   $("#appListbox a").on('click', function(e){

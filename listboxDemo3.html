@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Selection Listbox</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/styles3.css">
+  </head>
+  <body>
+  <h1>Selection Listbox</h1>
+  <a href="#" id="informationLink">Need help?</a>
+  <p>Test text about entering information for a payment frequency</p>
+  
+  
+    <span class="mwf-input-text-label" id="lblFrequency">Select a category</span>
+
+    <select id="selfPaySelectableFrequency" name="frequency" style="display: none;"><option value="ONCE" selected="selected">Once</option>
+      <option value="WEEKLY">Weekly</option>
+      <option value="BIWEEKLY">Every two weeks</option>
+      <option value="SEMI_MONTHLY">Twice a month</option>
+      <option value="MONTHLY_LAST_FRIDAY">Last Friday of month</option>
+      <option value="MONTHLY">Monthly</option>
+    </select>
+<div class="accessibilityLabel" aria-hidden="true" id="option-selected" tabindex="-1">
+          Everyday Checking
+        </div>
+    <div class="mwf-select-list-target" tabindex="0" aria-expanded="false" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency option-selected" >
+      
+        
+        <p aria-hidden="true">
+          <span id="txtPlaceholder">Everyday Checking</span>
+        </p>
+     
+      <i class="mwf-icon"><img id="arrow" alt="" src="IMAGES/down.png"/></i>
+    </div>
+
+    <div
+             class="mwf-targeted-popup mwf-popup-arrow-left arrow-vertical-50">
+    <div id="list-container" class="mwf-popup mwf-select-list-popup">
+      <div class="mwf-select-list-popup-body">
+        <ul id="appListbox"  role="listbox"  aria-label="Select a Frequency" aria-owns="option1 option2 option3 option4 option5 option6">
+          <li><a id="option1"
+              class="selected"
+              tabindex="0"
+              data-value="ONCE"
+              role="option"
+			  aria-current="true"
+              aria-selected="true"
+              aria-posinset="1"
+              aria-setsize="6">Everyday Checking</a>
+            
+          <li><a id="option2"
+              class=" "
+              tabindex="-1"
+              data-value="WEEKLY"
+              role="option"
+              aria-selected="false"
+              aria-posinset="2"
+              aria-setsize="6">Preferred Checking</a></li>
+          <li><a id="option3"
+              class=" "
+              tabindex="-1"
+              data-value="BIWEEKLY"
+              role="option"
+              aria-selected="false"
+              aria-posinset="3"
+              aria-setsize="6">PMA Checking</a></li>
+          <li><a id="option4"
+              class=" "
+              tabindex="-1"
+              data-value="SEMI_MONTHLY"
+              role="option"
+              aria-selected="false"
+              aria-posinset="4"
+              aria-setsize="6">Premier Checking</a></li>
+          <li><a id="option5"
+              class=" "
+              tabindex="-1"
+              data-value="MONTHLY_LAST_FRIDAY"
+              role="option"
+              aria-selected="false"
+              aria-posinset="5"
+              aria-setsize="6">Platinum Savings</a></li>
+          <li><a id="option6"
+              class=" "
+              tabindex="-1"
+              data-value="MONTHLY"
+              role="option"
+              aria-selected="false"
+              aria-posinset="6"
+              aria-setsize="6">Wells Fargo CDs</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+	<h2>Credit Card Information</h2>
+    <div>
+	  <label for="cardNumber">Enter Card Number</label>
+      <input id="cardNumber" type="text" name="name">
+    </div>
+	
+	<h2 class="filterTxt" tabindex="-1">
+      <span class="ftext" id="cName">Everyday Checking</span>
+    </h2>
+	<div class="hidden" id="everydayCheckingText"><p>This is placeholder text for Every Day Checking.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<div class="hidden" id="preferredCheckingText"><p>This is placeholder text for Preferred Checking.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<div class="hidden" id="pmaCheckingText"><p>This is placeholder text for PMA Checking.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<div class="hidden" id="premierCheckingText"><p>This is placeholder text for Premier Checking.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<div class="hidden" id="platinumSavingsText"><p>This is placeholder text for Platinum Savings.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<div class="hidden" id="wellsFargoCdsText"><p>This is placeholder text for Wells Fargo CDs.</p><p>Lorem ipsum dolor sit amet, quod dicta invidunt ne vel, mel posse iriure voluptatibus et, meliore alienum te pri. Maluisset euripidis mei at, id vis docendi copiosae reprehendunt. Vim dissentiunt efficiantur concludaturque ne. Pri id dolore partem doctus. Ut hinc prima equidem mei, dictas vocent sed id.</p></div>
+	<a href="#">Link to FAQ</a>
+  </body>
+  <script src="JS/myscript3.js"></script>
+</html>
