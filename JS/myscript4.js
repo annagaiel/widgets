@@ -201,27 +201,22 @@ var resetAfterTabOut = function() {
   var changeCategory = function(option){
     $('#appListbox').toggle('slow');
 	$('#arrow').attr('src','IMAGES/down.png');
-	
+	     
       var name = option
     $("#cName").text(name);
-	if (name == "Everyday Checking") {
-		$(".hidden").css("display", "none");
-		$("#everydayCheckingText").css("display", "block");
-	} else if (name == "Preferred Checking") {
-		$(".hidden").css("display", "none");
-		$("#preferredCheckingText").css("display", "block");
-	} else if (name == "PMA Checking") {
-		$(".hidden").css("display", "none");
-		$("#pmaCheckingText").css("display", "block");
-	} else if (name == "Premier Checking") {
-		$(".hidden").css("display", "none");
-		$("#premierCheckingText").css("display", "block");
-	} else if (name == "Platinum Savings") {
-		$(".hidden").css("display", "none");
-		$("#platinumSavingsText").css("display", "block");
+	if (name == "Business Loans") {
+	location.replace("busLoan.html");
+	} else if (name == "Equipment Loan") {
+		location.replace("equipLoan.html");
+	} else if (name == "Small Business Loans") {
+		location.replace("smallBusLoan.html");
+	} else if (name == "Business lines of Credit") {
+		location.replace("busLine.html");
+	} else if (name == "Small Business Line of Credit") {
+		location.replace("smallBusLine.html");
 	} else {
-		$(".hidden").css("display", "none");
-		$("#wellsFargoCdsText").css("display", "block");
+		console.log("Secured Business Line of Credit");
+		location.replace("secBusLoan.html");
 	}
 	
     $("#placeholderTxt").text(name);
