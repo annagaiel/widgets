@@ -2,21 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Selection Listbox</title>
+    <title>Listbox selection navigates to new page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="CSS/styles3.css">
   </head>
   <body>
-  <h1>Selection Listbox</h1>
+  <h1>Listbox selection navigates to new page</h1>
   <a href="#" id="informationLink">Need help?</a>
-  <p>Test text about entering information for a payment frequency</p>
+  <p>Some text about selecting an account category</p>
   
   
     <span class="mwf-input-text-label" id="lblFrequency">Types of Loans/Lines of Credit</span>
-    <div class="accessibilityLabel" aria-hidden="true" id="option-selected" tabindex="-1">
-          Select a Category
-        </div>
-    <div class="mwf-select-list-target" tabindex="0" aria-expanded="false" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency option-selected" >
+    <div class="accessibilityLabel" aria-hidden="true" id="option-selected" tabindex="-1"> Select a Category </div>
+	<div class="accessibilityLabel" aria-hidden="true" id="listboxTip" tabindex="-1"> opens a listbox </div>
+    <div class="mwf-select-list-target" tabindex="0" aria-expanded="false" role="button" aria-pressed="false" id="btnFrequency" aria-labelledby="lblFrequency option-selected listboxTip" >
       
         
         <p aria-hidden="true">

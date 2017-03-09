@@ -1,15 +1,19 @@
 (function() {
   var appsListItems = document.querySelectorAll('#appListbox > li > a');
   var keys = {
-     tab:    9,
-     enter:  13,
-     esc:    27,
-     space:  32,
-     up:     38,
-     down:   40,
-     alt: 18,
-	 shift: 16
-   };
+		tab: 9,
+		enter: 13,
+		esc: 27,
+		space: 32,
+		up: 38,
+		down: 40,
+		alt: 18,
+		shift: 16,
+		pageUp: 33,
+		pageDown: 34,
+		home: 36,
+		end: 35
+	};
    var currentIndex;
 
    var gotoIndex = function(idx) {
@@ -40,7 +44,7 @@
 	   
      }
      el.addEventListener("keydown", function(event) {
-		 
+		 var listboxOptionsNum = appsListItems.length - 1;
          switch (event.keyCode) { // switch for all keyPress events when a user is navigating the listbox
             case keys.enter:
 		    case event.altKey && keys.up:
@@ -89,7 +93,26 @@
               gotoIndex(currentIndex - 1);
              break;
          
-			 
+			 case keys.home:
+					gotoIndex(0);
+					break;
+				case keys.end:
+					gotoIndex(listboxOptionsNum);
+					break;
+				case keys.pageUp:
+				if (currentIndex == 0 || currentIndex == 1) {
+						gotoIndex(0);
+						break;
+					}
+				gotoIndex(currentIndex - 2);
+					break;
+				case keys.pageDown:
+				if (currentIndex == listboxOptionsNum || currentIndex == 4) {
+						gotoIndex(listboxOptionsNum);
+						break;
+					}
+				gotoIndex(currentIndex + 2);
+					break;
            case keys.space:
              break;
          }
