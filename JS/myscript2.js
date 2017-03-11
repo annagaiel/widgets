@@ -1,4 +1,5 @@
 (function() {
+	
 	var appsListItems = document.querySelectorAll('#appListbox > li > a');
 	var keys = {
 		tab: 9,
@@ -40,11 +41,40 @@
 			el.removeAttribute("aria-current");
 		}
 		el.addEventListener("keydown", function(event) {
+		
+			var textArray = $("li a").map(function() {
+    return $(this).text();
+}).get();
+
+	 
+
+ var firstKey = (event.which);
+		 var firstLetterKey = (String.fromCharCode(event.which));
+			var letterArray = [];
+		 if (firstKey >= 65 && event.keyCode <= 90) {
+			for( var i=0; i<textArray.length; i++ ) {
+	var letter = textArray[i].charAt(0);
+    
+	letterArray.push(letter);
+	
+}
+
+	
+
+	
+if(jQuery.inArray(firstLetterKey, letterArray) != -1) {
+	var arrayIndexCheck = letterArray.indexOf(firstLetterKey); 
+	gotoIndex(arrayIndexCheck);
+}
+
+		 }
+			
 			var listboxOptionsNum = appsListItems.length - 1;
 			switch (event.keyCode) { // switch for all keyPress events when a user is navigating the listbox
+				
 				case keys.enter:
 				case event.altKey && keys.up:
-					$('#txtPlaceholder').text((this.innerText).replace('selected', ''));
+				    $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
 					$('#option-selected').text(this.innerText + " selected");
 					$('#appListbox').find('a').children().remove('span');
 					$('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
@@ -152,6 +182,7 @@
 		switch (event.keyCode) { // switch for opening listbox using enter/alt+down/space
 			case keys.enter:
 			case event.altKey && keys.down:
+			case keys.down:
 				$('#appListbox').toggle('slow');
 				$('#arrow').attr('src', 'IMAGES/up.png');
 				$('#appListbox').find(".selected").focus();
