@@ -1,5 +1,6 @@
 (function() {
-	
+	var letterLog = "";
+	var count = 0;
 	var appsListItems = document.querySelectorAll('#appListbox > li > a');
 	var keys = {
 		tab: 9,
@@ -41,40 +42,44 @@
 			el.removeAttribute("aria-current");
 		}
 		el.addEventListener("keydown", function(event) {
-		
 			var textArray = $("li a").map(function() {
-    return $(this).text();
-}).get();
-
-	 
-
- var firstKey = (event.which);
-		 var firstLetterKey = (String.fromCharCode(event.which));
-			var letterArray = [];
-		 if (firstKey >= 65 && event.keyCode <= 90) {
-			for( var i=0; i<textArray.length; i++ ) {
-	var letter = textArray[i].charAt(0);
-    
-	letterArray.push(letter);
-	
-}
-
-	
-
-	
-if(jQuery.inArray(firstLetterKey, letterArray) != -1) {
-	var arrayIndexCheck = letterArray.indexOf(firstLetterKey); 
-	gotoIndex(arrayIndexCheck);
-}
-
-		 }
-			
+				return $(this).text();
+			}).get();
+			var firstKey = (event.which),
+				firstLetterKey = (String.fromCharCode(event.which)),
+				letterArray = [];
+				
+			if (firstKey >= 65 && event.keyCode <= 90) {
+				for (var i = 0; i < textArray.length; i++) {
+					var letter = textArray[i].charAt(0);
+					letterArray.push(letter);
+				}
+				var arrayIndexCheck = letterArray.indexOf(firstLetterKey), target = firstLetterKey;
+				
+				var numOccurences = $.grep(letterArray, function(elem) {
+					return elem === target;
+				}).length;
+				var totalOccurences = numOccurences - 1;
+				if (letterLog != firstLetterKey) {
+					if (jQuery.inArray(firstLetterKey, letterArray) != -1) {
+						gotoIndex(arrayIndexCheck);
+						letterLog = firstLetterKey;
+					} 
+				} else {
+					if (count >= totalOccurences) {
+						gotoIndex(arrayIndexCheck);
+						count = 0;
+					} else {
+						gotoIndex(currentIndex + 1);
+						count++;
+					}
+				}
+			}
 			var listboxOptionsNum = appsListItems.length - 1;
 			switch (event.keyCode) { // switch for all keyPress events when a user is navigating the listbox
-				
 				case keys.enter:
 				case event.altKey && keys.up:
-				    $('#txtPlaceholder').text((this.innerText).replace('selected', ''));
+					$('#txtPlaceholder').text((this.innerText).replace('selected', ''));
 					$('#option-selected').text(this.innerText + " selected");
 					$('#appListbox').find('a').children().remove('span');
 					$('#appListbox').find('.selected').attr('tabindex', '-1').attr('aria-selected', 'false').removeClass('selected');
@@ -117,18 +122,18 @@ if(jQuery.inArray(firstLetterKey, letterArray) != -1) {
 					gotoIndex(listboxOptionsNum);
 					break;
 				case keys.pageUp:
-				if (currentIndex == 0 || currentIndex == 1) {
+					if (currentIndex == 0 || currentIndex == 1) {
 						gotoIndex(0);
 						break;
 					}
-				gotoIndex(currentIndex - 2);
+					gotoIndex(currentIndex - 2);
 					break;
 				case keys.pageDown:
-				if (currentIndex == listboxOptionsNum || currentIndex == 4) {
+					if (currentIndex == listboxOptionsNum || currentIndex == 4) {
 						gotoIndex(listboxOptionsNum);
 						break;
 					}
-				gotoIndex(currentIndex + 2);
+					gotoIndex(currentIndex + 2);
 					break;
 				case keys.space:
 					break;
@@ -170,8 +175,8 @@ if(jQuery.inArray(firstLetterKey, letterArray) != -1) {
 		$('#appListbox').toggle('slow');
 		$('#appListbox').find(".selected").focus();
 		togglePressed();
-		var up = "IMAGES/up.png";
-		var down = "IMAGES/down.png";
+		var up = "IMAGES/up.png",
+			down = "IMAGES/down.png";
 		if ($('#arrow').attr('src') === up) {
 			$('#arrow').attr('src', down);
 		} else {
@@ -182,11 +187,18 @@ if(jQuery.inArray(firstLetterKey, letterArray) != -1) {
 		switch (event.keyCode) { // switch for opening listbox using enter/alt+down/space
 			case keys.enter:
 			case event.altKey && keys.down:
-			case keys.down:
+			
 				$('#appListbox').toggle('slow');
 				$('#arrow').attr('src', 'IMAGES/up.png');
 				$('#appListbox').find(".selected").focus();
 				togglePressed();
+				break;
+				case keys.down:
+				$('#appListbox').toggle('slow');
+				$('#arrow').attr('src', 'IMAGES/up.png');
+				$('#appListbox').find(".selected").focus();
+				togglePressed();
+				gotoIndex(currentIndex + 1);
 				break;
 			case keys.space:
 				var event = jQuery.Event('keypress');
