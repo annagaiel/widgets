@@ -59,6 +59,7 @@
 				var numOccurences = $.grep(letterArray, function(elem) {
 					return elem === target;
 				}).length;
+				
 				var totalOccurences = numOccurences - 1;
 				if (letterLog != firstLetterKey) {
 					if (jQuery.inArray(firstLetterKey, letterArray) != -1) {
